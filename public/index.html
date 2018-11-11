@@ -1,0 +1,47 @@
+<!doctype html>
+<html ng-app="energyСalculation">
+<head>
+<meta charset="utf-8">
+
+</head>
+<body>
+  <!-- <div ng-controller="myCtrl">
+    <button ng-click="signIn()">Sign In</button>
+  
+    <p ng-if="firebaseUser">Signed in user: <strong>{{ firebaseUser.uid }}</strong></p>
+    <p ng-if="errorMessage">Error: <strong>{{ errorMessage }}</strong></p>
+  </div> -->
+  <a href="#!home">home</a>
+  <a href="#!account">account</a>
+  <a href="#!signIn">signIn</a>
+  <a href="#!signUp">signUp</a>
+  
+  <div ng-view></div>
+  <!-- <div ng-controller="signUpController">
+    Email: <input type="text" ng-model="email">
+    Password: <input type="text" ng-model="password">
+    name: <input type="text" ng-model="name">
+    <br>
+    <button ng-click="createUser()">Create User</button>
+    <br>
+    <button ng-click="deleteUser()">Delete User</button>
+  
+    <p ng-if="message">Message: <strong>{{ message }}</strong></p>
+    <p ng-if="error">Error: <strong>{{ error }}</strong></p>
+  </div> -->
+
+  <div ng-controller="myCtrl">
+    <div ng-if="firebaseUser">
+      <button ng-if='firebaseUser' ng-click='signOut()'>SignOut</button>
+      hello {{firebaseUser.email}}
+    </div>
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+<script src='./app.js'></script>
+<script src='./signUpController.js'></script>
+<script src='./signInController.js'></script>
+</body>
+</html>

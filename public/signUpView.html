@@ -1,0 +1,15 @@
+<body ng-controller="signUpController">
+     <div>
+    Email: <input type="text" ng-model="email">
+    Password: <input type="text" ng-model="password">
+    name: <input type="text" ng-model="name">
+    <br>
+    <button ng-click="createUser()">Create User</button>
+    <br>
+    <button ng-click="deleteUser()">Delete User</button>
+  
+    <p ng-if="message">Message: <strong>{{ message }}</strong></p>
+    <p ng-if="error">Error: <strong>{{ error }}</strong></p>
+  </div> 
+</body>
+    
