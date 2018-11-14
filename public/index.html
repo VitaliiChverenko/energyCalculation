@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 
 </head>
-<body>
+<body ng-controller="myCtrl">
   <!-- <div ng-controller="myCtrl">
     <button ng-click="signIn()">Sign In</button>
   
@@ -13,8 +13,15 @@
   </div> -->
   <a href="#!home">home</a>
   <a href="#!account">account</a>
-  <a href="#!signIn">signIn</a>
-  <a href="#!signUp">signUp</a>
+  <a ng-hide='firebaseUser' href="#!signIn">signIn</a>
+  <a ng-hide='firebaseUser' href="#!signUp">signUp</a>
+  
+  <div ng-controller="myCtrl">
+    <div ng-if="firebaseUser">
+      <button ng-if='firebaseUser' ng-click='signOut()'>SignOut</button>
+      hello {{firebaseUser.email}}
+    </div>
+  </div>
   
   <div ng-view></div>
   <!-- <div ng-controller="signUpController">
@@ -30,12 +37,6 @@
     <p ng-if="error">Error: <strong>{{ error }}</strong></p>
   </div> -->
 
-  <div ng-controller="myCtrl">
-    <div ng-if="firebaseUser">
-      <button ng-if='firebaseUser' ng-click='signOut()'>SignOut</button>
-      hello {{firebaseUser.email}}
-    </div>
-  </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>

@@ -89,16 +89,19 @@ myApp.config(function($routeProvider) {
             //     });
             // }
             $scope.curUser = snapshot.val()
-            console.log(snapshot.val())
-
+            
+            console.log($scope.curUser.name)
+          });
         });
-      });
       // var tmp = FirebaseUser.getCurrentUser()
       // console.log(JSON.stringify($scope.object))
       $scope.changeInfo = function() {
         const dbref = firebase.database().ref('users/' +  $scope.firebaseUser.uid)
         dbref.update({
-          name: $scope.curUser
+          id: $scope.firebaseUser.uid,
+          name: $scope.curUser.name,
+          age: $scope.curUser.age,
+          location: $scope.curUser.location,
         });
       }
 
