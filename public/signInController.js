@@ -13,14 +13,4 @@ angular.module('energyСalculation').controller('signInController', function($sc
         $scope.errorMessage = error.message;
     });
     }
-
-    $scope.signOut = function () {
-        Auth.$signOut().then(function() {
-            console.log('signout')
-            // $window.location.reload();
-            $location.url = '/home'
-          }).catch(function(error) {
-            // An error happened.
-          });
-        }
 })

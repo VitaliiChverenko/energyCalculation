@@ -1,4 +1,4 @@
-// (function() {
+(function() {
   var config = {
     apiKey: "AIzaSyDLr18cufcg9szpwGvWp9V8ZT3gy_MVhxw",
     authDomain: "energycalculation-53ff6.firebaseapp.com",
@@ -27,6 +27,10 @@
 
 myApp.config(function($routeProvider) {
   $routeProvider
+  .when('/', {
+    templateUrl: "signInView.html",
+    controller: "signInController",
+  })
   .when('/signIn', {
     templateUrl: "signInView.html",
     controller: "signInController",
@@ -69,27 +73,32 @@ myApp.config(function($routeProvider) {
       const r = rootRef.child('users')
       $scope.object = $firebaseArray(rootRef);
       $scope.arr = $firebaseArray(r)
-      // console.log($scope.object[2].name)
-      
 
       // var auth = $firebaseAuth();
 
       Auth.$onAuthStateChanged(function(user) {
         $scope.firebaseUser = user;
-        // $scope.name = user.name
-        // var tmp = $scope.object.users.filter((el) => {
-        //   return el.id = user.uid
-        // })
-        // console.log(user.uid)
-        $scope.curUser = $scope.arr.filter((el) => {
-          return el.id == user.uid
-        })
-        console.log($scope.arr)
+  
+        const userReference = firebase.database().ref(`users/${user.uid}`);
+        userReference.on('value', snapshot => {
+            // if (!snapshot.val()) {
+            //     // User does not exist, create user entry
+            //     userReference.set({
+            //         email: user.email,
+            //         displayName: user.displayName
+            //     });
+            // }
+            $scope.curUser = snapshot.val()
+            console.log(snapshot.val())
+
+        });
       });
+      // var tmp = FirebaseUser.getCurrentUser()
+      // console.log(JSON.stringify($scope.object))
       $scope.changeInfo = function() {
         const dbref = firebase.database().ref('users/' +  $scope.firebaseUser.uid)
         dbref.update({
-          name: $scope.curUser.name
+          name: $scope.curUser
         });
       }
 
@@ -140,4 +149,4 @@ myApp.config(function($routeProvider) {
       }
     }
   )  
-// })()
+})()
