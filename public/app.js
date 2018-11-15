@@ -1,11 +1,11 @@
 (function() {
   var config = {
-    apiKey: "AIzaSyDLr18cufcg9szpwGvWp9V8ZT3gy_MVhxw",
-    authDomain: "energycalculation-53ff6.firebaseapp.com",
-    databaseURL: "https://energycalculation-53ff6.firebaseio.com",
-    projectId: "energycalculation-53ff6",
-    storageBucket: "energycalculation-53ff6.appspot.com",
-    messagingSenderId: "230719897469"
+      apiKey: "AIzaSyCdtHP_ERKmO389RVF7retNJLhZTWrUnHA",
+      authDomain: "diploma-f00c6.firebaseapp.com",
+      databaseURL: "https://diploma-f00c6.firebaseio.com",
+      projectId: "diploma-f00c6",
+      storageBucket: "diploma-f00c6.appspot.com",
+      messagingSenderId: "598264653858"
   };
   firebase.initializeApp(config);
   var myApp = angular.module('energyСalculation', ['firebase', 'ngRoute']);

@@ -1,7 +1,20 @@
 
 // angular.module('energyСalculation', ['firebase', 'ngRoute'])
 angular.module('energyСalculation').controller('signUpController', function($scope, $firebaseObject, $firebaseAuth, $route, $window, $location, Auth){
-    
+  angular.module('ngvalueSelect', [])
+//   .controller('RegionController', ['$scope', function($scope) {
+//     $scope.data = {
+//      model: null,
+//      availableOptions: [
+//           {value: 'myString', name: 'string'},
+//           {value: 1, name: 'integer'},
+//           {value: true, name: 'boolean'},
+//           {value: null, name: 'null'},
+//           {value: {prop: 'value'}, name: 'object'},
+//           {value: ['a'], name: 'array'}
+//      ]
+//     };
+//  }]);
     Auth.$onAuthStateChanged(function(firebaseUser) {
         $scope.firebaseUser = firebaseUser;
     });
@@ -19,7 +32,12 @@ angular.module('energyСalculation').controller('signUpController', function($sc
             dbref.set({
               id: firebaseUser.uid,
               name: $scope.name,
-              email: $scope.email
+              email: $scope.email,
+              state: $scope.data.state,
+              region: $scope.data.region,
+              companyType: $scope.data.companyType,
+              companyAge: $scope.data.companyAge,
+              // description: $scope.description
             });
           }).catch(function(error) {
             $scope.error = error;
