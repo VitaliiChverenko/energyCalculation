@@ -35,9 +35,9 @@ angular.module('energyСalculation').controller('signUpController', function($sc
               email: $scope.email,
               state: $scope.data.state,
               region: $scope.data.region,
+              companyName: $scope.data.companyName,
               companyType: $scope.data.companyType,
               companyAge: $scope.data.companyAge,
-              // description: $scope.description
             });
           }).catch(function(error) {
             $scope.error = error;

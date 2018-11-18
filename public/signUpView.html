@@ -1,101 +1,121 @@
 <body ng-controller="signUpController"><br>
-    <div class="ui middle aligned center aligned grid">
+  <div class="ui middle aligned center aligned grid">
     <div class="column">
-        <form class="ui large form">
-          <div class="ui stacked segment">
-            <div class="field">
-        <p class="ui teal tag label">Інформація про користувача</p><br><br>
-        <label>Назва компанії: </label><input type="text" ng-model="name" ><br><br>
-        <label>Пароль: </label><input type="text" ng-model="password"><br><br>
-        <label>Email: </label><input type="text" ng-model="email"><br><br>
-        <label class="ui teal tag label">Інформація про компанію</label><br><br>
-        <label for="singleSelect"> Область: </label>
-        <select name="singleSelect" ng-model="data.state">
-          <option value="Вінницька область">Вінницька область</option>
-          <option value="Волинська область">Волинська область</option>
-          <option value="Донецька область">Донецька область</option>
-          <option value="Житомирська область">Житомирська область</option>
-          <option value="Закарпатська область">Закарпатська область</option>
-          <option value="Київська область">Київська область </option>
-          <option value="Кіровоградська область">Кіровоградська область</option>
-          <option value="Луганська область">Луганська область</option>
-          <option value="Львівська область">Львівська область</option>
-          <option value="Миколаївська область">Миколаївська область</option>
-          <option value="Одеська область">Одеська область</option>
-          <option value="Полтавська область">Полтавська область</option>
-          <option value="Рівненська область">Рівненська область</option>
-          <option value="Сумська область">Сумська область</option>
-          <option value="Харківська область">Харківська область</option>
-          <option value="Херсонська область">Херсонська область</option>
-          <option value="Хмельницька область">Хмельницька область</option>
-          <option value="Черкаська область">Черкаська область</option>
-          <option value="Чернівецька область">Чернівецька область</option>
-          <option value="Чернігівська область">Чернігівська область</option>
-        </select><br><br>
-        <label for="singleSelect" >Регіон: </label>
-        <select name="singleSelect" ng-model="data.region">
-          <!-- //Вінницька область -->
-          <option value="Барський район">Барський район</option>
-          <option value="Бершадський район">Бершадський район</option>
-          <option value="Вінницький район">Вінницький район</option>
-          <!-- //Волинська область -->
-          <option value="Володимир-Волинський район">Володимир-Волинський район</option>
-          <option value="Горохівський район">Горохівський район</option>
-          <option value="Іваничівський район">Іваничівський район</option>
-          <!-- //Дніпропетровська область -->
-          <option value="Апостолівський район">Апостолівський район</option> 
-          <option value="Васильківський район">Васильківський район</option> 
-          <option value="Верхньодніпровський район">Верхньодніпровський район</option> 
-          <!-- //Донецька область -->
-          <option value="Амвросіївський район">Амвросіївський район</option> 
-          <option value="Артемівський район">Артемівський район</option> 
-          <option value="Великоновосілківський район">Великоновосілківський район</option> 
-          <!-- //Житомирська область -->
-          <option value="Андрушівський район">Андрушівський район</option>  
-          <option value="Баранівський район"> Баранівський район</option>  
-          <option value="Бердичівський район">Бердичівський район</option>   
-          <!-- //Львівська область -->
-          <option value="Бродівський район">Бродівський район</option> 
-          <option value="Дрогобицький район">Дрогобицький район</option> 
-          <option value="Жидачівський район">Жидачівський район</option> 
-        </select><br><br>
-        <div>
-        <label for="singleSelect" >Галузь промисловості:</label>
-        <select name="singleSelect" ng-model="data.companyType">
-          <option value="Автомобільна">Автомобільна</option>
-          <option value="Електротехнічка">Електротехнічна</option>
-          <option value="Робототехніка">Робототехніка</option>
-          <option value="Харчова">Харчова</option>
-          <option value="Хімічна">Хімічна</option>
-        </select><br><br>    
-        <label for="singleSelect">Дата заснування компанії:</label>
-        <select name="singleSelect" ng-model="data.companyAge">
-          <option value="2018">2018</option>
-          <option value="2017">2017</option>
-          <option value="2016">2016</option>
-          <option value="2015">2015</option>
-          <option value="2014">2014</option>
-          <option value="2014">2014</option>
-          <option value="2013">2013</option>
-          <option value="2012">2012</option>
-          <option value="2011">2011</option>
-          <option value="2010">2010</option>
-          <option value="2009">2009</option>
-          <option value="2008">2008</option>
-          <option value="2007">2007</option>
-          <option value="2006">2006</option>
-          <option value="2005">2005</option>
-        </select><br><br>      
-        <!-- <label>Опис: </label><input type="textarea" ng-model="description"> -->
+      <form class="ui large form">
+        <div class="ui stacked segment">
+          <div class="inline fields">
+            <p class="ui teal tag label">Інформація про користувача</p><br>
+          </div>
+          <div class="inline fields ">
+            <label>Email:</label><input type="text" ng-model="email" style="height: 30px; margin-left: 50px;"><br><br>
+          </div>
+          <div class="inline fields">
+            <label>Пароль:</label><input type="text" ng-model="password" style="height: 30px; margin-left: 36px;"><br><br>
+          </div>
+          <div class="inline fields">
+            <label>Ім'я: </label><input type="text" ng-model="name" style="height: 30px; margin-left: 60px;"><br><br>
+          </div>
+          <div class="inline fields">
+            <p class="ui teal tag label">Інформація про компанію</p><br><br>
+          </div>
+          <div class="inline fields">
+            <label>Назва<br> компанії: </label><input type="text" ng-model="companyName" style="height: 30px; margin-left: 27px;"><br><br>
+          </div>
+          <div class="inline fields" >
+            <label for="singleSelect"> Область: </label>
+            <select name="singleSelect" ng-model="data.state" style=" margin-left: 28px;">
+              <option value="Вінницька область">Вінницька область</option>
+              <option value="Волинська область">Волинська область</option>
+              <option value="Донецька область">Донецька область</option>
+              <option value="Житомирська область">Житомирська область</option>
+              <option value="Закарпатська область">Закарпатська область</option>
+              <option value="Київська область">Київська область </option>
+              <option value="Кіровоградська область">Кіровоградська область</option>
+              <option value="Луганська область">Луганська область</option>
+              <option value="Львівська область">Львівська область</option>
+              <option value="Миколаївська область">Миколаївська область</option>
+              <option value="Одеська область">Одеська область</option>
+              <option value="Полтавська область">Полтавська область</option>
+              <option value="Рівненська область">Рівненська область</option>
+              <option value="Сумська область">Сумська область</option>
+              <option value="Харківська область">Харківська область</option>
+              <option value="Херсонська область">Херсонська область</option>
+              <option value="Хмельницька область">Хмельницька область</option>
+              <option value="Черкаська область">Черкаська область</option>
+              <option value="Чернівецька область">Чернівецька область</option>
+              <option value="Чернігівська область">Чернігівська область</option>
+            </select><br><br>
+          </div>
+          <div class="inline fields">
+            <label for="singleSelect" >Регіон: </label>
+            <select name="singleSelect" ng-model="data.region" style=" margin-left: 42px;">
+              <!-- //Вінницька область -->
+              <option value="Барський район">Барський район</option>
+              <option value="Бершадський район">Бершадський район</option>
+              <option value="Вінницький район">Вінницький район</option>
+              <!-- //Волинська область -->
+              <option value="Володимир-Волинський район">Володимир-Волинський район</option>
+              <option value="Горохівський район">Горохівський район</option>
+              <option value="Іваничівський район">Іваничівський район</option>
+              <!-- //Дніпропетровська область -->
+              <option value="Апостолівський район">Апостолівський район</option> 
+              <option value="Васильківський район">Васильківський район</option> 
+              <option value="Верхньодніпровський район">Верхньодніпровський район</option> 
+              <!-- //Донецька область -->
+              <option value="Амвросіївський район">Амвросіївський район</option> 
+              <option value="Артемівський район">Артемівський район</option> 
+              <option value="Великоновосілківський район">Великоновосілківський район</option> 
+              <!-- //Житомирська область -->
+              <option value="Андрушівський район">Андрушівський район</option>  
+              <option value="Баранівський район"> Баранівський район</option>  
+              <option value="Бердичівський район">Бердичівський район</option>   
+              <!-- //Львівська область -->
+              <option value="Бродівський район">Бродівський район</option> 
+              <option value="Дрогобицький район">Дрогобицький район</option> 
+              <option value="Жидачівський район">Жидачівський район</option> 
+            </select><br><br>
+          </div>
+          <div class="inline fields">
+            <label for="singleSelect" >Галузь промисловості:</label>
+            <select name="singleSelect" ng-model="data.companyType" style=" margin-left: 8px;">
+              <option value="Автомобільна">Автомобільна</option>
+              <option value="Електротехнічка">Електротехнічна</option>
+              <option value="Робототехніка">Робототехніка</option>
+              <option value="Харчова">Харчова</option>
+              <option value="Хімічна">Хімічна</option>
+            </select><br><br>    
+          </div>
+          <div class="inline fields">
+            <label for="singleSelect">Дата заснування компанії:</label>
+            <select name="singleSelect" ng-model="data.companyAge">
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+              <option value="2014">2014</option>
+              <option value="2014">2014</option>
+              <option value="2013">2013</option>
+              <option value="2012">2012</option>
+              <option value="2011">2011</option>
+              <option value="2010">2010</option>
+              <option value="2009">2009</option>
+              <option value="2008">2008</option>
+              <option value="2007">2007</option>
+              <option value="2006">2006</option>
+              <option value="2005">2005</option>
+            </select><br><br>      
+          </div>
+          
+          <br>
+          <button ng-click="createUser()" class="ui large teal submit button">Створити користувача</button><br><br>
+          <button ng-click="deleteUser()"class="ui large teal submit button"> Видалити користувача</button><br><br>
+          <button ng-click=""class="ui large teal submit button"> Повернутись до входу</button>
+          <br><br></form>
+          <p ng-if="message">Message: <strong>{{ message }}</strong></p>
+          <p ng-if="error">Error: <strong>{{ error }}</strong></p>
         </div>
-        <br>
-        <button ng-click="createUser()" class="ui large teal submit button">Create User</button>
-        <button ng-click="deleteUser()"class="ui large teal submit button"> Delete User</button>
-        <br><br></form>
-        <p ng-if="message">Message: <strong>{{ message }}</strong></p>
-        <p ng-if="error">Error: <strong>{{ error }}</strong></p>
       </div>
-    </div>
-  <!-- </div> </div> -->
+    </div> 
+  </div>
 </body>
     
