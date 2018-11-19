@@ -1,0 +1,125 @@
+<div ng-controller="electricityController">
+    <table>
+        <tr>
+            <td>
+                К-ть кВт
+            </td>
+            <td>
+                Вартість(грн./кВт)
+            </td>
+            <td>
+                Сума витрат(грн.)
+            </td>
+            <td>
+                Період(Від)
+            </td>
+            <td>
+                Період(До)
+            </td>
+            <td>
+                Відділ
+            </td>
+        </tr>
+        <tr ng-repeat="energy in curUser.energy track by $index">
+            <td>
+                {{::energy.kVatt}}
+            </td>
+            <td>
+                {{::energy.uah}}
+            </td>
+            <td>
+                {{energy.costs}}
+            </td>
+            <td>
+                {{energy.periodFrom}}
+            </td>
+            <td>
+                {{energy.periodTo}}
+            </td>
+            <td>
+                {{energy.department}}
+            </td>
+        </tr>
+    </table>
+
+    <br>
+
+    <button id='addItemToTable' ng-click="showFieldsToAdd()">Добавити запис</button>
+
+    <br>
+
+    <div id='addItem'>
+            <table>
+                <tr>
+                    <td >
+                        К-ть кВт
+                    </td>
+                    <td>
+                        Вартість(грн./кВт)
+                    </td>
+                    <td>
+                        Сума витрат(грн.)
+                    </td>
+                    <td>
+                        Період(Від)
+                    </td>
+                    <td>
+                        Період(До)
+                    </td>
+                    <td>
+                        Відділ
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <input type="number" ng-init="consumption.kVatt=0" ng-model="consumption.kVatt">
+                    </td>
+                    <td>
+                        <input type="number" ng-init="consumption.uah=0" ng-model="consumption.uah">
+                    </td>
+                    <td>
+                        {{consumption.kVatt*consumption.uah}}
+                    </td>
+                    <td>
+                        <datepicker style="width: 250px" date-format="d/M/yy">
+                            <input type="text" ng-model="consumption.periodFrom">
+                        </datepicker>
+                    </td>
+                    <td>
+                        <datepicker style="width: 250px" date-format="d/M/yy">
+                            <input type="text" ng-model="consumption.periodTo">
+                        </datepicker>
+                    </td>
+                    <td>
+                        <input type="text" ng-model="consumption.department">
+                    </td>
+                </tr>
+            </table>
+        <button ng-click="addConsumption()">Добавити</button>
+    </div>
+
+    <div>
+        Витрати за період більші:
+            <input type="text" ng-model="minConsumption"/>
+        Витрати за період менші:
+        <input type="text" ng-model="maxConsumption"/>
+        <datepicker style="width: 250px" date-format="d/M/yy">
+            Від
+            <input type="text" ng-model="searchPeriodFrom">
+        </datepicker>
+        <datepicker style="width: 250px" date-format="d/M/yy">
+            До
+            <input type="text" ng-model="searchPeriodTo">
+        </datepicker>
+        <button ng-click="buildDiagram()">Будувати графік</button>
+    </div>
+
+    <div class='diagram'>
+        <!-- <canvas id="pie" class="chart chart-pie"
+            chart-data="data" chart-labels="departments" chart-options="options">
+        </canvas>  -->
+        <canvas id="bar" class="chart chart-bar"
+            chart-data="data" chart-labels="departments">
+        </canvas>
+    </div>
+</div>

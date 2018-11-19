@@ -6,7 +6,7 @@ angular.module('energyСalculation').controller('signInController', function($sc
     $scope.signIn = function() {
         Auth.$signInWithEmailAndPassword($scope.email, $scope.password)
         .then(function(firebaseUser) {
-        $window.location.href = '#!/home'
+        $window.location.href = '#!/electricity'
         $scope.firebaseUser = firebaseUser;
     }).catch(function(error) {
         $scope.errorCode = error.code;

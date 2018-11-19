@@ -8,7 +8,7 @@
     messagingSenderId: "230719897469"
   };
   firebase.initializeApp(config);
-  var myApp = angular.module('energyСalculation', ['firebase', 'ngRoute']);
+  var myApp = angular.module('energyСalculation', ['firebase', 'ngRoute', '720kb.datepicker', 'chart.js']);
   myApp.factory("Auth", ["$firebaseAuth",
     function($firebaseAuth) {
       return $firebaseAuth();
@@ -53,7 +53,7 @@ myApp.config(function($routeProvider) {
   })
   .when("/account", {
     // the rest is the same for ui-router and ngRoute...
-    controller: "myCtrl",
+    controller: "accountController",
     templateUrl: "account.html",
     // resolve: {
     //   // controller will not be loaded until $requireSignIn resolves
@@ -64,7 +64,11 @@ myApp.config(function($routeProvider) {
     //     return Auth.$requireSignIn();
     //   }]
     // }
-  });
+  })
+  .when('/electricity', {
+    templateUrl: "electricityView.html",
+    controller: "electricityController",
+  })
 });
 
   myApp.controller('myCtrl', function($scope, $firebaseArray, $firebaseAuth, $route, $window, $location, Auth){
@@ -89,63 +93,32 @@ myApp.config(function($routeProvider) {
             //     });
             // }
             $scope.curUser = snapshot.val()
-            
-            console.log($scope.curUser.name)
+            // $scope.newdep = Object.keys($scope.curUser.departments)
+            // console.log($scope.curUser.name)
           });
         });
-      // var tmp = FirebaseUser.getCurrentUser()
-      // console.log(JSON.stringify($scope.object))
-      $scope.changeInfo = function() {
-        const dbref = firebase.database().ref('users/' +  $scope.firebaseUser.uid)
-        dbref.update({
-          id: $scope.firebaseUser.uid,
-          name: $scope.curUser.name,
-          age: $scope.curUser.age,
-          location: $scope.curUser.location,
-        });
-      }
 
-      // $scope.createUser = function() {
-      //   $scope.message = null;
-      //   $scope.error = null;
-  
-      //   // Create a new user
-      //   Auth.$createUserWithEmailAndPassword($scope.email, $scope.password)
-      //     .then(function(firebaseUser) {
-            
-      //       $scope.message = "User created with uid: " + firebaseUser.uid;
-      //       $scope.curus = firebaseUser.uid;
-
-      //       const dbref = firebase.database().ref('users/' + firebaseUser.uid)
-      //       dbref.set({
-      //         id: firebaseUser.uid,
-      //         name: $scope.name,
-      //         email: $scope.email
-      //       });
-      //     }).catch(function(error) {
-      //       $scope.error = error;
-      //     });
-      // };
-
-      // Auth.$onAuthStateChanged(function(firebaseUser) {
-      //   $scope.firebaseUser = firebaseUser;
-      // });
-
-    //   $scope.signIn = function() {
-    //     Auth.$signInWithEmailAndPassword($scope.email, $scope.password)
-    //     .then(function(firebaseUser) {
-    //       $window.location.href = '#!/account'
-    //       $scope.firebaseUser = firebaseUser;
-    //   }).catch(function(error) {
-    //     $scope.errorCode = error.code;
-    //     $scope.errorMessage = error.message;
-    //   });
-    // }
+      // $scope.changeInfo = function() {
+      //   const dbref = firebase.database().ref('users/' +  $scope.firebaseUser.uid)
+      //   // $scope.dep = $scope.curUser.departments.reduce(function(result, item) {
+      //   //   result[item] = ['energy'];
+      //   //   return result;
+      //   //   }, {})
+      //   $scope.dep = Object.values($scope.curUser.departments)
+      //   console.log($scope.dep)
+      //   // dbref.update({
+      //   //   id: $scope.firebaseUser.uid,
+      //   //   name: $scope.curUser.name,
+      //   //   age: $scope.curUser.age,
+      //   //   location: $scope.curUser.location,
+      //   //   departments: Object.values($scope.curUser.departments)
+      //   // });
+      // }
 
     $scope.signOut = function () {
       Auth.$signOut().then(function() {
           console.log('signout')
-          $window.location.href = '#!/home'
+          $window.location.href = '#!/signIn'
         }).catch(function(error) {
           // An error happened.
         });

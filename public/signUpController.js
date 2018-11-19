@@ -16,11 +16,16 @@ angular.module('energyСalculation').controller('signUpController', function($sc
             $scope.message = "User created with uid: " + firebaseUser.uid;
     
             const dbref = firebase.database().ref('users/' + firebaseUser.uid)
-            dbref.set({
+            dbref.update({
               id: firebaseUser.uid,
-              name: $scope.name,
-              email: $scope.email
+              email: $scope.email,
+              // energy: {
+              //   0: {
+              //     // costs: ''
+              //   }
+              // }
             });
+            $window.location.href = '#!/account'
           }).catch(function(error) {
             $scope.error = error;
           });

@@ -1,0 +1,17 @@
+.diagram {
+    display: none;
+    width: 300px;
+    height: 150px;
+}
+table, th, td {
+    border: 1px solid black;
+}
+#addItemToTable {
+    display: block;
+}
+#addItem{
+    display: none;
+}
+.datePicker{
+    display: inline-block;
+}
